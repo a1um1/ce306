@@ -3,18 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
 	<title>Document</title>
 </head>
 <body>
-	<div>
-		<label for="fromInput">ใส่จำนวนเงิน (USD):</label>
-		<input id="fromInput" type="number">	
-	</div>
-	<div>
-		<label for="toInput">ใส่จำนวนเงิน (THB):</label>
-		<input id="toInput" type="number">	
-	</div>
-	<button id="resetInput">Reset</button>
+	<div class="container">
+		<div class="convert-form">
+
+			<div>
+				<label for="fromInput">ใส่จำนวนเงิน (USD):</label>
+				<input id="fromInput" type="number">	
+			</div>
+			<div>
+				<label for="toInput">ใส่จำนวนเงิน (THB):</label>
+				<input id="toInput" type="number">	
+			</div>
+			<button id="resetInput">Reset</button>
+		</div>
+		<p>อัพเดทเมื่อ : <span id="currentTime"></span></p>
 	<p>ประวัติการแปลงค่า:</p>
 	<ul id="historyList"></ul>
 	<button id="clearHistory">Clear History</button>
@@ -26,8 +32,10 @@
 		const resetButton = document.getElementById("resetInput");
 		const historyList = document.getElementById("historyList");
 		const clearHistoryButton = document.getElementById("clearHistory");
+		const currentTimeSpan = document.getElementById("currentTime");
 		const history = []
 
+		currentTimeSpan.textContent = new Date().toLocaleString('th-TH');
 		resetButton.addEventListener("click", () => {
 			fromInput.value = "";
 			toInput.value = "";
@@ -72,13 +80,21 @@
 		}
 
 		function handleUpdateHistory(e){
-			const targetInput = e.target;
-			history.push({from: parseFloat(fromInput.value), to: parseFloat(toInput.value),
+			const fromValue = parseFloat(fromInput.value);
+			const toValue = parseFloat(toInput.value);
+			if (isNaN(fromValue) || isNaN(toValue)) 
+				return;
+			
+			history.unshift({from: parseFloat(fromInput.value), to: parseFloat(toInput.value),
 				date: new Date()
 			});
+			if (history.length > 10) 
+				history.pop();
+			
 			renderList();
 		}
 
 	</script>
+	</div>
 </body>
 </html>
