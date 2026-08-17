@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<img id="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnRbvmZ1BO0kGZuYTIO85DWiBeGoqkxofeSF9hPuVvxBjjO5X5oO_W_y4&s=10"/>
+		<div class="form">
+			<label for="inputText">เลือกสกุลเงิน:</label>
+			<select id="currencySelect">
+				<option value="USD">USD</option>
+				<option value="EUR">EUR</option>
+				<option value="JPY">JPY</option>
+			</select>
+		</div>
+		<div class="form">
+			<label for="inputText">ใส่จำนวนเงิน:</label>
+			<input id="inputText" type="number">
+		</div>
+		<button id="convertButton">แปลงเป็นไทย</button>
+		<p id="result"></p>
+	</div>
+	<br/>
+	<script>
+		const conversionRate = {
+			'USD': 30.0,
+			'EUR': 35.0,
+			'JPY': 0.28 
+		}
+		document.getElementById("convertButton").addEventListener("click", ()=>{
+			const inputElement = document.getElementById("inputText");
+			const selectedCurrency = document.getElementById("currencySelect").value;
+			const value = parseFloat(inputElement.value);
+			if (isNaN(value)) {
+				document.getElementById("result").textContent = "Please enter a valid number.";
+				return;
+			}
+
+			const selectedRate = conversionRate[selectedCurrency] || 1;
+			const convertedValue = value * selectedRate;
+			document.getElementById("result").textContent = `${value} ${selectedCurrency || 'unknown'} is equal to ${convertedValue} THB.`;
+		})
+	</script>
+</body>
+</html>

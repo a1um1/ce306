@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<label for="fromInput">ใส่จำนวนเงิน (USD):</label>
+		<input id="fromInput" type="number">	
+	</div>
+	<div>
+		<label for="toInput">ใส่จำนวนเงิน (THB):</label>
+		<input id="toInput" type="number">	
+	</div>
+	<button id="resetInput">Reset</button>
+	<p>ประวัติการแปลงค่า:</p>
+	<ul id="historyList"></ul>
+	<button id="clearHistory">Clear History</button>
+	<script>
+		const conversionRate = 30.0;
+
+		const fromInput = document.getElementById("fromInput");
+		const toInput = document.getElementById("toInput");
+		const resetButton = document.getElementById("resetInput");
+		const historyList = document.getElementById("historyList");
+		const clearHistoryButton = document.getElementById("clearHistory");
+		const history = []
+
+		resetButton.addEventListener("click", () => {
+			fromInput.value = "";
+			toInput.value = "";
+		});
+
+		clearHistoryButton.addEventListener("click", () => {
+			history.length = 0;
+			renderList();
+		});
+
+		fromInput.addEventListener("input", () => {
+			const usdValue = parseFloat(fromInput.value);
+			if (!isNaN(usdValue)) {
+				toInput.value = (usdValue * conversionRate).toFixed(2);
+			} else {
+				toInput.value = "";
+			}
+		});
+
+		toInput.addEventListener("input", () => {
+			const thbValue = parseFloat(toInput.value);
+			if (!isNaN(thbValue)) {
+				fromInput.value = (thbValue / conversionRate).toFixed(2);
+			} else {
+				fromInput.value = "";
+			}
+		});
+
+		fromInput.addEventListener("blur", handleUpdateHistory);
+		toInput.addEventListener("blur", handleUpdateHistory);
+
+		
+		function renderList () {
+			console.log("Rendering history list:", history);
+			const listItems = history.map(entry => {
+				const li = document.createElement("li");
+				li.textContent = `${entry.from.toLocaleString()} USD = ${entry.to.toLocaleString()} THB (${entry.date.toLocaleString('th-TH')})`;
+				return li;
+			});
+			historyList.innerHTML = "";
+			listItems.forEach(li => historyList.appendChild(li));
+		}
+
+		function handleUpdateHistory(e){
+			const targetInput = e.target;
+			history.push({from: parseFloat(fromInput.value), to: parseFloat(toInput.value),
+				date: new Date()
+			});
+			renderList();
+		}
+
+	</script>
+</body>
+</html>
