@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+	<div class="bg-white p-6 rounded mx-auto max-w-lg w-full flex flex-col gap-4">
+
+		<h1 class="text-2xl font-bold">จดรายรับรายจ่าย</h1>
+		<div id="summary" class="grid grid-cols-3 gap-4">
+			<div>
+				<h3>รายรับ</h3>
+				<p id="income-sum" class="text-green-600 font-bold">0</p>
+			</div>
+			<div>
+				<h3>รายจ่าย</h3>	
+				<p id="expense-sum" class="text-red-600 font-bold">0</p>
+			</div>
+			<div>
+				<h3>คงเหลือ</h3>
+				<p id="balance-sum" class="font-bold">0</p>
+			</div>
+		</div>
+
+		<h2 class="text-2xl font-bold">รายการ</h2>
+		<div class="flex gap-4 items-center">
+			<label>ค้นหา</label>
+			<input type="text" id="search-bar" placeholder="ค้นหารายการ" class="border border-gray-300 rounded py-2 px-4 w-full">
+		</div>
+		<ol id="transaction-lists" class="list-decimal list-inside">
+		</ol>
+		<button id="clear-all" class="bg-red-700 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">
+			ลบรายการทั้งหมด
+		</button>
+
+		<h2 class="text-2xl font-bold">เพิ่มหมวดหมู่</h2>
+		<form id="category-add-form" class="flex flex-col gap-4">
+			<div class="flex flex-col gap-1">
+				<label for="category-name">ชื่อหมวดหมู่</label>
+				<input type="text" name="category-name" placeholder="ชื่อหมวดหมู่" class="border border-gray-300 rounded py-2 px-4">
+			</div>
+			<div class="flex flex-col gap-1">
+				<label for="category-icon">ไอคอนหมวดหมู่</label>
+				<input type="text" name="category-icon" placeholder="ไอคอนหมวดหมู่"  class="border border-gray-300 rounded py-2 px-4">
+			</div>
+			<button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">
+				เพิ่มหมวดหมู่
+			</button>
+		</form>
+		<h2 class="text-2xl font-bold">เพิ่มรายการ</h2>
+		<form id="transaction-add-form" class="flex flex-col gap-4">
+			<div class="flex flex-col gap-1">
+				<label>ชื่อรายการ</label>
+				<input type="text" name="transaction-name" placeholder="ชื่อรายการ"
+				class="border border-gray-300 rounded py-2 px-4">
+			</div>
+			<div class="flex flex-col gap-1">
+				<label>จำนวนเงิน</label>
+				<input type="number" name="transaction-amount" placeholder="จำนวนเงิน" class="border border-gray-300 rounded py-2 px-4">
+			</div>
+			<div class="flex flex-col gap-1">
+				<label>ประเภท</label>
+				<div>
+					<input type="radio" name="transaction-type" value="income" checked> รายรับ
+				</div>
+				<div>
+					<input type="radio" name="transaction-type" value="expense"> รายจ่าย
+				</div>
+			</div>
+			<div class="flex flex-col gap-1">
+				<label for="category-lists">หมวดหมู่</label>
+				<select id="category-lists" name="transaction-category" class="border border-gray-300 rounded py-2 px-4">
+				</select>
+			</div>
+			<button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full">
+				เพิ่มรายการ
+			</button>
+		</form>
+	</div>
+	<script src="app.js"></script>
+
+</body>
+</html>
