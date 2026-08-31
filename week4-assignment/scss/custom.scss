@@ -1,0 +1,49 @@
+
+@import "../node_modules/bootstrap/scss/functions";
+
+$navbar-padding-x: 0.75rem;
+$navbar-padding-y: 0.75rem;
+
+$body-bg: #F1E9D4;
+$body-color: #333333;
+$primary: #9644FE;
+
+$font-family-sans-serif: "Google Sans Flex", sans-serif;
+$font-family-monospace: "Geist Mono", monospace;
+$btn-border-radius:   99rem;
+$btn-border-radius-sm: 99rem;
+$btn-border-radius-lg: 99rem;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1140px
+);
+
+
+@import "bootstrap.scss";
+
+.hero {
+	min-height: calc(100vh - 5rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	gap: 1rem;
+	img {
+		width: 100%;
+		flex: 1;
+		border-radius: 2em;
+		object-fit: cover;
+		display: flex;
+	}
+}
+
+.footer {
+	border-top: 2px solid $body-color;
+	padding: 1rem;
+}

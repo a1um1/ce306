@@ -1,0 +1,21 @@
+{
+  "name": "week4-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss:watch": "sass scss/custom.scss dist/css/bootstrap-custom.css --style=compressed -w",
+		"pug:watch": "pug src/pages --out dist --pretty --watch"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "pug": "^3.0.4"
+  },
+  "devDependencies": {
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.103.1"
+  }
+}
