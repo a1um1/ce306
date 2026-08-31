@@ -7,12 +7,14 @@ $navbar-padding-y: 0.75rem;
 $body-bg: #F1E9D4;
 $body-color: #333333;
 $primary: #9644FE;
+$border-width: 2px;
 
 $font-family-sans-serif: "Google Sans Flex", sans-serif;
 $font-family-monospace: "Geist Mono", monospace;
 $btn-border-radius:   99rem;
 $btn-border-radius-sm: 99rem;
 $btn-border-radius-lg: 99rem;
+$carousel-control-color: black;
 
 $container-max-widths: (
   sm: 540px,
@@ -43,7 +45,38 @@ $container-max-widths: (
 	}
 }
 
+.shop-showcase {
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	display: flex;
+	gap: 1rem;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+}
+
+.carousel-inner {
+	height: 100%;
+}
+.carousel-item {
+		height: 100%;
+
+	img {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
 .footer {
-	border-top: 2px solid $body-color;
+	border-top: $border-width solid $body-color;
 	padding: 1rem;
+}
+
+.custom-carousel {
+	.carousel-inner {
+		border-radius: 2rem;
+	}
 }

@@ -1,0 +1,23 @@
+extends ../layout.pug
+block content
+	div.container.shop-showcase
+			#carouselExample.carousel.slide.custom-carousel.col
+				.carousel-inner
+					.carousel-item.active
+						img(src='public/kb.png' alt='...')
+					.carousel-item
+						img(src='public/kb2.png' alt='...')
+				button.carousel-control-prev(type='button' data-bs-target='#carouselExample' data-bs-slide='prev')
+					span.carousel-control-prev-icon(aria-hidden='true')
+					span.visually-hidden Previous
+				button.carousel-control-next(type='button' data-bs-target='#carouselExample' data-bs-slide='next')
+					span.carousel-control-next-icon(aria-hidden='true')
+					span.visually-hidden Next
+			div.d-flex.w-100.flex-column.gap-2.col
+					h1.font-monospace New Keyboard 2
+					h5.display-2.font-monospace Look Very Cool and Feel Very Good
+					hr.border-black.opacity-100
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut elit non lacus feugiat viverra. Mauris pretium lobortis dui nec pulvinar. Nulla et ante non ligula pulvinar sagittis et id odio. Morbi risus lorem, sagittis eu neque nec, condimentum aliquam libero. Maecenas ligula velit, egestas nec fringilla consequat, auctor eu nulla. Fusce bibendum neque quis purus laoreet facilisis. Etiam sollicitudin dolor id mauris sagittis gravida at at nibh. Sed porttitor sodales sem, malesuada auctor ex. In sed purus lectus. Phasellus bibendum, felis vitae ullamcorper auctor, augue tortor malesuada urna, sit amet tincidunt nulla nunc id metus. Sed molestie non lectus in lobortis. Duis sit amet est eu leo maximus luctus vel non quam. Vestibulum vitae enim a massa condimentum interdum.
+					div.d-flex.justify-content-between.align-items-center.w-100.gap-4
+						h2.font-monospace.fw-bold.mb-0 $99.99
+						a.btn.btn-primary.btn-lg.w-100(href="#" role="button") Pre Order
