@@ -1,0 +1,21 @@
+$primary-color: #4CAF50;
+$primary-text-color: #ffffff;
+$border-radius: 6px;
+
+button {
+	background-color: $primary-color;
+	color: $primary-text-color;
+	padding: 0.8rem 2rem;
+	border: none;
+	border-radius: $border-radius;
+
+	&:hover {
+		background-color: color-mix(in srgb, $primary-color 90%, black);
+	}
+	&:focus, &:active {
+		outline: 2px;
+		outline-offset: 2px;
+		
+		outline-color: color-mix(in srgb, $primary-color 50%, transparent);
+	}
+}

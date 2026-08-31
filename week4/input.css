@@ -1,0 +1,17 @@
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 6px;
+}
+button:hover {
+  background-color: color-mix(in srgb, #4CAF50 90%, black);
+}
+button:focus, button:active {
+  outline: 2px;
+  outline-offset: 2px;
+  outline-color: color-mix(in srgb, #4CAF50 50%, transparent);
+}
+
+/*# sourceMappingURL=input.css.map */

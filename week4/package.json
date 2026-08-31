@@ -1,0 +1,14 @@
+{
+  "name": "week4",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"scss:watch": "sass --watch input.scss input.css"
+  },
+  "devDependencies": {
+    "sass": "^1.103.1"
+  }
+}
