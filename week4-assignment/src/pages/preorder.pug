@@ -1,0 +1,21 @@
+extends ../layout.pug
+block content
+	section.container.p-4
+		h1.fw-bold Preorder
+		form
+			div.mb-3
+				label.form-label(for="name") Name
+				input.form-control#name(type="text")
+			div.mb-3
+				label.form-label(for="email") Email
+				input.form-control#email(type="email")
+			div.mb-3
+				label.form-label(for="phone") Phone
+				input.form-control#phone(type="text")
+			div.mb-3
+				label.form-label(for="address") Address
+				input.form-control#address(type="text")
+			div.mb-3
+				label.form-label(for="PostalCode") Postal Code
+				input.form-control#PostalCode(type="text")
+			button.btn.btn-primary.w-100 Submit Pre Order
