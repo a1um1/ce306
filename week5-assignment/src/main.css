@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+
+body {
+	@apply bg-gradient-to-b from-orange-200 to-yellow-50 ;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+	&.dark {
+		@apply from-indigo-950 to-slate-900 text-white;
+		#toggleMode:before {
+			content: "🌙 ";
+		}
+	}
+	
+	#toggleMode:before {
+		content: "☀️ ";
+	}
+}
+
+#clicker {
+	@apply aspect-square w-48 transition transition-transform active:scale-125 hover:scale-105;
+	background-image: url("cookie.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+}
+
+#counter{
+	@apply text-2xl font-bold;
+}
+
+.custom-container {
+	@apply flex flex-col items-center justify-center h-screen gap-12;
+}
+
+.btn {
+	@apply px-4 py-2 bg-black text-white rounded-lg;
+}
